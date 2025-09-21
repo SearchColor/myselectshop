@@ -8,7 +8,7 @@ import com.sparta.myselectshop.entity.User;
 import com.sparta.myselectshop.entity.UserRoleEnum;
 import com.sparta.myselectshop.naver.dto.ItemDto;
 import com.sparta.myselectshop.repository.ProductRepository;
-import lombok.Generated;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@RequiredArgsConstructor
 public class ProductService {
     private final ProductRepository productRepository;
     public static final int MIN_MY_PRICE = 100;
@@ -63,8 +64,4 @@ public class ProductService {
         product.updateByItemDto(itemDto);
     }
 
-    @Generated
-    public ProductService(final ProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
 }

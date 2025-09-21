@@ -7,10 +7,9 @@ import com.sparta.myselectshop.security.UserDetailsImpl;
 import com.sparta.myselectshop.service.FolderService;
 import com.sparta.myselectshop.service.UserService;
 import jakarta.validation.Valid;
-import java.util.List;
-import lombok.Generated;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,11 +20,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
+@Slf4j
 @Controller
 @RequestMapping({"/api"})
+@RequiredArgsConstructor
 public class UserController {
-    @Generated
-    private static final Logger log = LoggerFactory.getLogger(UserController.class);
+
     private final UserService userService;
     private final FolderService folderService;
 
@@ -71,9 +73,5 @@ public class UserController {
         return "index :: #fragment";
     }
 
-    @Generated
-    public UserController(final UserService userService, final FolderService folderService) {
-        this.userService = userService;
-        this.folderService = folderService;
-    }
+
 }

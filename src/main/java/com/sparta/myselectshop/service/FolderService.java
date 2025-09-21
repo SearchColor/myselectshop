@@ -4,13 +4,16 @@ import com.sparta.myselectshop.dto.FolderResponseDto;
 import com.sparta.myselectshop.entity.Folder;
 import com.sparta.myselectshop.entity.User;
 import com.sparta.myselectshop.repository.FolderRepository;
-import java.util.ArrayList;
-import java.util.List;
-import lombok.Generated;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
+@RequiredArgsConstructor
 public class FolderService {
+
     private FolderRepository folderRepository;
 
     public void addFolders(List<String> folderNames, User user) {
