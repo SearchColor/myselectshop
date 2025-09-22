@@ -15,7 +15,7 @@ import java.util.List;
 @RequestMapping("/api")
 public class FolderController {
 
-    private FolderService folderService;
+    private final FolderService folderService;
 
     @PostMapping({"/folders"})
     public void addFolders(@RequestBody FolderRequestDto requestDto, @AuthenticationPrincipal UserDetailsImpl userDetails) {

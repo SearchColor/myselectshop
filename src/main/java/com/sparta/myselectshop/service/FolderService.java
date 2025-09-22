@@ -14,11 +14,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class FolderService {
 
-    private FolderRepository folderRepository;
+    private final FolderRepository folderRepository;
 
     public void addFolders(List<String> folderNames, User user) {
         List<Folder> existFolderList = this.folderRepository.findAllByUserAndNameIn(user, folderNames);
-        List<Folder> folderList = new ArrayList();
+        List<Folder> folderList = new ArrayList<>();
 
         for(String folderName : folderNames) {
             if (this.isExistFolderName(folderName, existFolderList)) {
@@ -34,7 +34,7 @@ public class FolderService {
 
     public List<FolderResponseDto> getFolders(User user) {
         List<Folder> folderList = this.folderRepository.findAllByUser(user);
-        List<FolderResponseDto> responseDtoList = new ArrayList();
+        List<FolderResponseDto> responseDtoList = new ArrayList<>();
 
         for(Folder folder : folderList) {
             responseDtoList.add(new FolderResponseDto(folder));

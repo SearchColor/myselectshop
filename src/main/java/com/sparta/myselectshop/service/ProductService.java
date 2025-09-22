@@ -70,6 +70,7 @@ public class ProductService {
     }
 
     public void addFolder(Long productId, Long folderId, User user) {
+
         Product product = productRepository.findById(productId).orElseThrow(
                 ()-> new NullPointerException("해당 상품은 존재하지 않습니다."));
 
@@ -77,7 +78,7 @@ public class ProductService {
                 ()-> new NullPointerException("해당 폴더가 존재하지 않습니다."));
 
         if (!product.getUser().getId().equals(user.getId())
-        || folder.getUser().getId().equals(user.getId())){
+        || !folder.getUser().getId().equals(user.getId())){
             throw new IllegalArgumentException("회원님의 관심상품이 아니거나, 회원님의 폴더가 아닙니다.");
         }
 
