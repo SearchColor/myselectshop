@@ -37,7 +37,7 @@ public class ProductService {
     public ProductResponseDto updateProduct(Long id, ProductMypriceRequestDto requestDto) {
         int myPrice = requestDto.getMyprice();
         if (myPrice < 100) {
-            throw new IllegalArgumentException("유효하지 않는 관 가격입니다. 최소 100원 이상으로 설정해 주세요.");
+            throw new IllegalArgumentException("유효하지 않은 관심 가격입니다. 최소 100원 이상으로 설정해 주세요.");
         } else {
             Product product = (Product)this.productRepository.findById(id).orElseThrow(() -> new NullPointerException("해당상품을 찾을 수 없습니다."));
             product.update(requestDto);
