@@ -22,7 +22,7 @@ public class FolderService {
 
         for(String folderName : folderNames) {
             if (this.isExistFolderName(folderName, existFolderList)) {
-                throw new IllegalArgumentException("폴더명이 중복 되었습니다.");
+                throw new IllegalArgumentException("중복된 폴더명을 제거해주세요. 폴더명 : "+ folderName);
             }
 
             Folder folder = new Folder(folderName, user);
